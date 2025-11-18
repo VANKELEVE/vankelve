@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vankelve - Productos Químicos para Albercas</title>
-
     <style>
         * {
             margin: 0;
@@ -16,7 +15,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f7f9fc;
         }
 
         header {
@@ -65,13 +63,13 @@
         .hero {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #64b5f6 100%);
             color: white;
-            padding: 150px 2rem 120px;
+            padding: 150px 2rem 100px;
             text-align: center;
             margin-top: 70px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             animation: fadeInUp 1s ease;
         }
@@ -127,6 +125,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
 
         .producto-card {
@@ -144,107 +143,306 @@
         }
 
         .producto-icon {
-            font-size: 3.5rem;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .producto-card h3 {
             color: #1e3c72;
             margin-bottom: 1rem;
         }
 
-        .contacto {
-            background: #e8f0fe;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        .servicios {
+            background: #f5f9ff;
         }
 
-        .contacto p {
-            font-size: 1.2rem;
+        .servicios-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .servicio-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #2a5298;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .servicio-item h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .nosotros {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
             text-align: center;
+        }
+
+        .nosotros h2 {
+            color: white;
+        }
+
+        .contacto {
+            background: #f5f9ff;
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contacto-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .contacto-info h3 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: #2a5298;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input, textarea {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2a5298;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button {
+            padding: 15px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #1e3c72;
         }
 
         footer {
             background: #1e3c72;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 2rem;
         }
 
-        footer p {
-            font-size: 0.9rem;
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- HEADER -->
     <header>
         <nav>
             <div class="logo">VANKELVE</div>
             <ul>
+                <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Productos Químicos para Albercas</h1>
-        <p>Soluciones profesionales para mantener tu agua limpia, segura y cristalina.</p>
-        <a href="#productos" class="btn">Ver Productos</a>
+    <section class="hero" id="inicio">
+        <h1>VANKELVE</h1>
+        <p>Productos Químicos de Calidad para el Mantenimiento de tu Alberca</p>
+        <a href="#contacto" class="btn">Contáctanos</a>
     </section>
 
-    <!-- PRODUCTOS -->
     <section id="productos">
         <h2>Nuestros Productos</h2>
-
         <div class="productos-grid">
             <div class="producto-card">
                 <div class="producto-icon">💧</div>
-                <h3>Tricloro</h3>
-                <p>Desinfección efectiva para mantener el agua libre de bacterias y microorganismos.</p>
+                <h3>Cloro y Desinfectantes</h3>
+                <p>Mantén el agua de tu alberca cristalina y libre de bacterias con nuestros productos de alta calidad.</p>
             </div>
-
-            <div class="producto-card">
-                <div class="producto-icon">⚗️</div>
-                <h3>Hipoclorito</h3>
-                <p>Solución líquida altamente efectiva para la limpieza y sanitización del agua.</p>
-            </div>
-
             <div class="producto-card">
                 <div class="producto-icon">🧪</div>
-                <h3>pH Plus y pH Minus</h3>
-                <p>Productos esenciales para equilibrar los niveles de pH de tu alberca.</p>
+                <h3>Reguladores de pH</h3>
+                <p>Controla el balance químico perfecto del agua para mayor confort y protección del equipo.</p>
+            </div>
+            <div class="producto-card">
+                <div class="producto-icon">🌊</div>
+                <h3>Alguicidas</h3>
+                <p>Previene y elimina algas para mantener tu alberca impecable todo el año.</p>
+            </div>
+            <div class="producto-card">
+                <div class="producto-icon">✨</div>
+                <h3>Clarificadores</h3>
+                <p>Agua transparente y brillante con nuestros clarificadores de acción rápida.</p>
+            </div>
+            <div class="producto-card">
+                <div class="producto-icon">🔬</div>
+                <h3>Kits de Análisis</h3>
+                <p>Mide con precisión los niveles químicos de tu alberca con nuestros kits profesionales.</p>
+            </div>
+            <div class="producto-card">
+                <div class="producto-icon">🛡️</div>
+                <h3>Productos Especiales</h3>
+                <p>Soluciones específicas para cada necesidad de mantenimiento de albercas.</p>
             </div>
         </div>
     </section>
 
-    <!-- NOSOTROS -->
-    <section id="nosotros">
-        <h2>Sobre Nosotros</h2>
-        <p style="font-size: 1.2rem; text-align: center; max-width: 900px; margin: 0 auto;">
-            En <strong>Vankelve</strong> nos dedicamos a la distribución de productos químicos para albercas,
-            garantizando calidad, seguridad y eficiencia. Nuestros productos están diseñados para mantener
-            el agua limpia y cristalina, cuidando la salud de tu familia y alargando la vida útil de tu alberca.
+    <section class="servicios" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="servicios-list">
+            <div class="servicio-item">
+                <h3>Asesoría Técnica</h3>
+                <p>Te ayudamos a elegir los productos adecuados y te enseñamos cómo usarlos correctamente.</p>
+            </div>
+            <div class="servicio-item">
+                <h3>Entrega a Domicilio</h3>
+                <p>Recibe tus productos químicos directamente en tu negocio o residencia.</p>
+            </div>
+            <div class="servicio-item">
+                <h3>Soporte Continuo</h3>
+                <p>Estamos disponibles para resolver tus dudas sobre el mantenimiento de albercas.</p>
+            </div>
+            <div class="servicio-item">
+                <h3>Productos de Calidad</h3>
+                <p>Trabajamos solo con las mejores marcas y garantizamos la efectividad de nuestros productos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="nosotros" id="nosotros">
+        <h2>Sobre Vankelve</h2>
+        <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+            En Vankelve somos especialistas en productos químicos para el mantenimiento de albercas. 
+            Nos dedicamos a proporcionar soluciones de calidad que garantizan agua limpia, cristalina y 
+            segura para tu familia o negocio. Con años de experiencia en el sector, ofrecemos productos 
+            confiables y asesoría profesional para mantener tu alberca en perfectas condiciones.
         </p>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto">
-        <h2>Contacto</h2>
+    <section class="contacto" id="contacto">
+        <h2>Contáctanos</h2>
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <h3>Información de Contacto</h3>
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <div>
+                        <strong>Dirección:</strong><br>
+                        Tepatitlán de Morelos, Jalisco, México
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📞</span>
+                    <div>
+                        <strong>Teléfono:</strong><br>
+                        [Tu número de teléfono]
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">✉️</span>
+                    <div>
+                        <strong>Email:</strong><br>
+                        contacto@vankelve.com
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🕒</span>
+                    <div>
+                        <strong>Horario:</strong><br>
+                        Lunes a Viernes: 9:00 - 18:00<br>
+                        Sábado: 9:00 - 14:00
+                    </div>
+                </div>
+            </div>
 
-        <div class="contacto">
-            <p>📍 San Miguel el Alto, Jalisco</p>
-            <p>📞 Tel: 347 000 0000</p>
-            <p>📧 Email: contacto@vankelve.com</p>
+            <form id="contactForm">
+                <input type="text" placeholder="Nombre completo" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="tel" placeholder="Teléfono">
+                <textarea placeholder="Mensaje o consulta" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2025 Vankelve. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Vankelve - Productos Químicos para Albercas. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
