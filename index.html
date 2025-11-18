@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vankelve - Productos Químicos para Albercas</title>
+    <title>Vankelve - Productos Químicos para Albercas | Catálogo 2025</title>
     <style>
         * {
             margin: 0;
@@ -90,11 +90,18 @@
             font-weight: bold;
             transition: all 0.3s;
             animation: fadeInUp 1s ease 0.4s backwards;
+            margin: 0 10px;
         }
 
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
         }
 
         @keyframes fadeInUp {
@@ -121,9 +128,38 @@
             margin-bottom: 3rem;
         }
 
+        .catalogo-section {
+            background: #f5f9ff;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid #2a5298;
+            background: white;
+            color: #2a5298;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #2a5298;
+            color: white;
+        }
+
         .productos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -131,8 +167,7 @@
         .producto-card {
             background: white;
             border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
+            overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: all 0.3s;
         }
@@ -142,14 +177,101 @@
             box-shadow: 0 15px 40px rgba(30,60,114,0.2);
         }
 
-        .producto-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+        .producto-imagen {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .producto-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .producto-info {
+            padding: 1.5rem;
+        }
+
+        .producto-categoria {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #e3f2fd;
+            color: #1e3c72;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .producto-card h3 {
             color: #1e3c72;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .producto-descripcion {
+            color: #666;
+            font-size: 0.95rem;
             margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .producto-presentacion {
+            color: #2a5298;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .producto-precio {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .producto-acciones {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small {
+            flex: 1;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline {
+            border: 2px solid #2a5298;
+            color: #2a5298;
+            background: white;
+        }
+
+        .btn-outline:hover {
+            background: #f0f7ff;
+        }
+
+        .btn-primary {
+            background: #2a5298;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e3c72;
         }
 
         .servicios {
@@ -284,6 +406,10 @@
             h2 {
                 font-size: 2rem;
             }
+
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -293,7 +419,7 @@
             <div class="logo">VANKELVE</div>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
@@ -304,45 +430,213 @@
     <section class="hero" id="inicio">
         <h1>VANKELVE</h1>
         <p>Productos Químicos de Calidad para el Mantenimiento de tu Alberca</p>
-        <a href="#contacto" class="btn">Contáctanos</a>
+        <a href="#catalogo" class="btn">Ver Catálogo 2025</a>
+        <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
     </section>
 
-    <section id="productos">
-        <h2>Nuestros Productos</h2>
+    <section class="catalogo-section" id="catalogo">
+        <h2>Catálogo de Productos 2025</h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterProducts('todos')">Todos los Productos</button>
+            <button class="filter-btn" onclick="filterProducts('cloro')">Cloro</button>
+            <button class="filter-btn" onclick="filterProducts('ph')">Reguladores de pH</button>
+            <button class="filter-btn" onclick="filterProducts('alguicida')">Alguicidas</button>
+            <button class="filter-btn" onclick="filterProducts('clarificador')">Clarificadores</button>
+            <button class="filter-btn" onclick="filterProducts('kits')">Kits de Análisis</button>
+        </div>
+
         <div class="productos-grid">
-            <div class="producto-card">
-                <div class="producto-icon">💧</div>
-                <h3>Cloro y Desinfectantes</h3>
-                <p>Mantén el agua de tu alberca cristalina y libre de bacterias con nuestros productos de alta calidad.</p>
+            <!-- Cloro Granulado -->
+            <div class="producto-card" data-category="cloro">
+                <div class="producto-imagen">💧</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Cloro</span>
+                    <h3>Cloro Granulado</h3>
+                    <p class="producto-descripcion">Cloro granulado de disolución rápida con 65% de cloro disponible. Ideal para desinfección rápida y efectiva del agua de albercas.</p>
+                    <p class="producto-presentacion">📦 Presentación: Cubeta 10 kg</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
             </div>
-            <div class="producto-card">
-                <div class="producto-icon">🧪</div>
-                <h3>Reguladores de pH</h3>
-                <p>Controla el balance químico perfecto del agua para mayor confort y protección del equipo.</p>
+
+            <!-- Cloro en Pastillas -->
+            <div class="producto-card" data-category="cloro">
+                <div class="producto-imagen">🔵</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Cloro</span>
+                    <h3>Cloro en Pastillas 200g</h3>
+                    <p class="producto-descripcion">Pastillas de cloro triclorado de disolución lenta. Mantiene niveles constantes de desinfección por varios días.</p>
+                    <p class="producto-presentacion">📦 Presentación: Cubeta 10 kg (50 pastillas aprox.)</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
             </div>
-            <div class="producto-card">
-                <div class="producto-icon">🌊</div>
-                <h3>Alguicidas</h3>
-                <p>Previene y elimina algas para mantener tu alberca impecable todo el año.</p>
+
+            <!-- Cloro Líquido -->
+            <div class="producto-card" data-category="cloro">
+                <div class="producto-imagen">🧊</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Cloro</span>
+                    <h3>Cloro Líquido (Hipoclorito)</h3>
+                    <p class="producto-descripcion">Hipoclorito de sodio al 13%. Desinfección instantánea, perfecto para tratamientos de choque y limpieza profunda.</p>
+                    <p class="producto-presentacion">📦 Presentación: Garrafa 20 litros</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
             </div>
-            <div class="producto-card">
-                <div class="producto-icon"></div>
-                <img src="https://github.com/VANKELEVE/vankelve/blob/main/545233324_122188036040500993_3127494998255083193_n.jpg?raw=true" 
-             alt="producto vankelve"
-             width="140">
-                <h3>Clarificadores</h3>
-                <p>Agua transparente y brillante con nuestros clarificadores de acción rápida.</p>
+
+            <!-- pH Plus -->
+            <div class="producto-card" data-category="ph">
+                <div class="producto-imagen">🧪</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">pH</span>
+                    <h3>pH Plus (Incrementador)</h3>
+                    <p class="producto-descripcion">Carbonato de sodio de alta pureza. Eleva los niveles de pH cuando están por debajo del rango ideal (7.2-7.6).</p>
+                    <p class="producto-presentacion">📦 Presentación: Cubeta 5 kg</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
             </div>
-            <div class="producto-card">
-                <div class="producto-icon">🔬</div>
-                
-                <h3>Kits de Análisis</h3>
-                <p>Mide con precisión los niveles químicos de tu alberca con nuestros kits profesionales.</p>
+
+            <!-- pH Minus -->
+            <div class="producto-card" data-category="ph">
+                <div class="producto-imagen">⚗️</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">pH</span>
+                    <h3>pH Minus (Reductor)</h3>
+                    <p class="producto-descripcion">Bisulfato de sodio granulado. Reduce los niveles de pH cuando están por encima del rango óptimo de manera segura y controlada.</p>
+                    <p class="producto-presentacion">📦 Presentación: Cubeta 5 kg</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
             </div>
-            <div class="producto-card">
-                <div class="producto-icon">🛡️</div>
-                <h3>Productos Especiales</h3>
-                <p>Soluciones específicas para cada necesidad de mantenimiento de albercas.</p>
+
+            <!-- Alguicida Concentrado -->
+            <div class="producto-card" data-category="alguicida">
+                <div class="producto-imagen">🌊</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Alguicida</span>
+                    <h3>Alguicida Concentrado</h3>
+                    <p class="producto-descripcion">Fórmula concentrada de amplio espectro. Elimina y previene todo tipo de algas: verdes, mostaza y negras.</p>
+                    <p class="producto-presentacion">📦 Presentación: Garrafa 4 litros</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alguicida Preventivo -->
+            <div class="producto-card" data-category="alguicida">
+                <div class="producto-imagen">🛡️</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Alguicida</span>
+                    <h3>Alguicida Preventivo</h3>
+                    <p class="producto-descripcion">Tratamiento preventivo de mantenimiento semanal. Evita la aparición de algas sin afectar el pH del agua.</p>
+                    <p class="producto-presentacion">📦 Presentación: Garrafa 4 litros</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clarificador -->
+            <div class="producto-card" data-category="clarificador">
+                <div class="producto-imagen">✨</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Clarificador</span>
+                    <h3>Clarificador Ultra</h3>
+                    <p class="producto-descripcion">Clarificador de acción rápida. Aglutina partículas microscópicas para obtener agua cristalina en pocas horas.</p>
+                    <p class="producto-presentacion">📦 Presentación: Botella 1 litro</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floculante -->
+            <div class="producto-card" data-category="clarificador">
+                <div class="producto-imagen">💎</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Clarificador</span>
+                    <h3>Floculante Granulado</h3>
+                    <p class="producto-descripcion">Aglutina partículas suspendidas formando grumos que se depositan en el fondo para facilitar su aspiración y eliminación.</p>
+                    <p class="producto-presentacion">📦 Presentación: Bolsa 2 kg</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kit de Análisis Básico -->
+            <div class="producto-card" data-category="kits">
+                <div class="producto-imagen">🔬</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Kits de Análisis</span>
+                    <h3>Kit de Análisis Básico</h3>
+                    <p class="producto-descripcion">Kit profesional para medir pH y cloro. Incluye reactivos líquidos y comparador de colores. Fácil y preciso.</p>
+                    <p class="producto-presentacion">📦 Kit completo con reactivos para 100 pruebas</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kit de Análisis Completo -->
+            <div class="producto-card" data-category="kits">
+                <div class="producto-imagen">🧬</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Kits de Análisis</span>
+                    <h3>Kit de Análisis Completo</h3>
+                    <p class="producto-descripcion">Kit profesional que mide pH, cloro libre y total, alcalinidad y dureza. Ideal para mantenimiento profesional.</p>
+                    <p class="producto-presentacion">📦 Kit completo con reactivos para 50 pruebas de cada parámetro</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tiras Reactivas -->
+            <div class="producto-card" data-category="kits">
+                <div class="producto-imagen">📊</div>
+                <div class="producto-info">
+                    <span class="producto-categoria">Kits de Análisis</span>
+                    <h3>Tiras Reactivas 6 en 1</h3>
+                    <p class="producto-descripcion">Tiras de análisis rápido que miden: Cloro libre, pH, alcalinidad, dureza, ácido cianúrico y bromo. Resultados en 15 segundos.</p>
+                    <p class="producto-presentacion">📦 Frasco con 50 tiras</p>
+                    <div class="producto-precio">Consultar precio</div>
+                    <div class="producto-acciones">
+                        <a href="#contacto" class="btn-small btn-outline">Más info</a>
+                        <a href="#contacto" class="btn-small btn-primary">Cotizar</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -351,31 +645,40 @@
         <h2>Nuestros Servicios</h2>
         <div class="servicios-list">
             <div class="servicio-item">
-                <h3>Asesoría Técnica</h3>
-                <p>Te ayudamos a elegir los productos adecuados y te enseñamos cómo usarlos correctamente.</p>
+                <h3>Asesoría Técnica Profesional</h3>
+                <p>Te ayudamos a elegir los productos adecuados según el tamaño y tipo de tu alberca. Te enseñamos las dosis correctas y frecuencia de aplicación.</p>
             </div>
             <div class="servicio-item">
                 <h3>Entrega a Domicilio</h3>
-                <p>Recibe tus productos químicos directamente en tu negocio o residencia.</p>
+                <p>Recibe tus productos químicos directamente en tu negocio o residencia. Servicio disponible en Tepatitlán y zonas cercanas.</p>
             </div>
             <div class="servicio-item">
-                <h3>Soporte Continuo</h3>
-                <p>Estamos disponibles para resolver tus dudas sobre el mantenimiento de albercas.</p>
+                <h3>Soporte Técnico Continuo</h3>
+                <p>Estamos disponibles para resolver tus dudas sobre el mantenimiento de albercas. Diagnóstico de problemas y soluciones efectivas.</p>
             </div>
             <div class="servicio-item">
-                <h3>Productos de Calidad</h3>
-                <p>Trabajamos solo con las mejores marcas y garantizamos la efectividad de nuestros productos.</p>
+                <h3>Productos de Calidad Garantizada</h3>
+                <p>Trabajamos solo con las mejores marcas y garantizamos la efectividad de nuestros productos. Certificados de calidad disponibles.</p>
+            </div>
+            <div class="servicio-item">
+                <h3>Capacitación y Entrenamiento</h3>
+                <p>Ofrecemos capacitación para personal de mantenimiento. Aprende las mejores prácticas en el cuidado de albercas.</p>
+            </div>
+            <div class="servicio-item">
+                <h3>Precios Especiales por Volumen</h3>
+                <p>Descuentos especiales para compras al mayoreo. Precios preferenciales para empresas de mantenimiento y hoteles.</p>
             </div>
         </div>
     </section>
 
     <section class="nosotros" id="nosotros">
         <h2>Sobre Vankelve</h2>
-        <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
-            En Vankelve somos especialistas en productos químicos para el mantenimiento de albercas. 
+        <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+            En Vankelve somos especialistas en productos químicos para el mantenimiento de albercas en Tepatitlán de Morelos, Jalisco. 
             Nos dedicamos a proporcionar soluciones de calidad que garantizan agua limpia, cristalina y 
             segura para tu familia o negocio. Con años de experiencia en el sector, ofrecemos productos 
-            confiables y asesoría profesional para mantener tu alberca en perfectas condiciones.
+            confiables, asesoría profesional y el mejor servicio para mantener tu alberca en perfectas condiciones 
+            durante todo el año. Nuestro compromiso es la satisfacción total de nuestros clientes.
         </p>
     </section>
 
@@ -402,53 +705,44 @@
                     <span class="info-icon">✉️</span>
                     <div>
                         <strong>Email:</strong><br>
+                        ventas@vankelve.com<br>
                         contacto@vankelve.com
                     </div>
                 </div>
                 <div class="info-item">
                     <span class="info-icon">🕒</span>
                     <div>
-                        <strong>Horario:</strong><br>
+                        <strong>Horario de Atención:</strong><br>
                         Lunes a Viernes: 9:00 - 18:00<br>
-                        Sábado: 9:00 - 14:00
+                        Sábado: 9:00 - 14:00<br>
+                        Domingo: Cerrado
                     </div>
                 </div>
             </div>
 
             <form id="contactForm">
+                <h3 style="color: #1e3c72; margin-bottom: 1rem;">Solicita una Cotización</h3>
                 <input type="text" placeholder="Nombre completo" required>
                 <input type="email" placeholder="Correo electrónico" required>
-                <input type="tel" placeholder="Teléfono">
-                <textarea placeholder="Mensaje o consulta" required></textarea>
-                <button type="submit">Enviar Mensaje</button>
+                <input type="tel" placeholder="Teléfono de contacto" required>
+                <textarea placeholder="¿Qué productos te interesan? Déjanos tu consulta..." required></textarea>
+                <button type="submit">Enviar Solicitud</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Vankelve - Productos Químicos para Albercas. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Vankelve - Productos Químicos para Albercas | Catálogo 2025</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Tepatitlán de Morelos, Jalisco, México</p>
     </footer>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
-            this.reset();
-        });
-    </script>
-</body>
-</html>
-
-
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.producto-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'todos' || car
